@@ -1,14 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:padding="16dp">
 
     <ToggleButton
         android:id="@+id/toggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textOff="Unlock Chrome"
-        android:textOn="Lock Chrome"/>
+        android:textOn="Enabled"
+        android:textOff="Disabled" />
+
+    <LinearLayout
+        android:id="@+id/permissionsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Row for Display Overlays Permission -->
+        <LinearLayout
+            android:id="@+id/overlayPermissionRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Display Overlays"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/overlayPermissionStatus"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:scaleType="centerInside"/>
+        </LinearLayout>
+
+        <!-- Row for Usage Access Permission -->
+        <LinearLayout
+            android:id="@+id/usageAccessRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Usage Access"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/usageAccessStatus"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:scaleType="centerInside"/>
+        </LinearLayout>
+
+        <!-- Row for Post Notifications Permission -->
+        <LinearLayout
+            android:id="@+id/notificationPermissionRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Post Notifications"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/notificationPermissionStatus"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:scaleType="centerInside"
+                />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
