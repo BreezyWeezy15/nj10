@@ -65,6 +65,8 @@ class MainActivity : AppCompatActivity() {
         findViewById<LinearLayout>(R.id.notificationPermissionRow).setOnClickListener {
             requestNotificationPermission()
         }
+
+
     }
 
     private fun updatePermissionStatus() {

@@ -1,4 +1,6 @@
 [versions]
+sentryAndroid="jar"
+sn="4.10.0"
 agp = "8.4.1"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
@@ -19,8 +21,9 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+sentry-android = { module = "io.sentry:sentry-android", version.ref = "sentryAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
+sentry = { id = "io.sentry.android.gradle", version.ref = "sn" }

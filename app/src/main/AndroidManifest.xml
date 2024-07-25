@@ -2,11 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
 
     <application
         android:allowBackup="true"
@@ -28,7 +30,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".AppLockService" />
+        <service android:name=".AppLockService"
+            android:foregroundServiceType="specialUse"/>
         <activity android:name=".LockScreenActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:showOnLockScreen="true"
@@ -38,6 +41,8 @@
             android:launchMode="singleInstance"
             android:taskAffinity=""
             android:screenOrientation="portrait"/>
+
+
     </application>
 
 </manifest>

@@ -8,6 +8,7 @@ import android.app.Service
 import android.app.usage.UsageStatsManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ServiceInfo
 import android.os.Build
 import android.os.Handler
 import android.os.IBinder
@@ -37,7 +38,12 @@ class AppLockService : Service() {
         super.onCreate()
         createNotificationChannel()
         val notification = createNotification()
-        startForeground(NOTIFICATION_ID, notification)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE){
+            startForeground(NOTIFICATION_ID, notification,ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
+        } else {
+            startForeground(NOTIFICATION_ID, notification)
+        }
+
         handler.post(runnable)
         Log.d("AppLockService", "Service created and runnable posted.")
     }
@@ -65,7 +71,7 @@ class AppLockService : Service() {
             val sortedMap = usageStatsList.sortedWith(compareByDescending { it.lastTimeUsed })
             val currentApp = sortedMap[0].packageName
             Log.d("AppLockService", "Current foreground app: $currentApp")
-            if (currentApp == "com.android.chrome") {
+            if (currentApp == "com.android.settings") {
                 showLockScreen()
             }
         } else {
